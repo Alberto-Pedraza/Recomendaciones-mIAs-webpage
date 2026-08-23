@@ -30,16 +30,34 @@ p{
     font-size: 1.3rem;
 }
 
+/** Aquí alineamos el subtítulo de las cards de cada recomendación
+============================================================================ */
 .card-subtitle{
     text-align: center;
 }
+
+/** Aquí hacemos lo mismo con el título de las cards además de aumentar su tamaño 
+=================================================================================== */
 
 .card-title{
     text-align: center;
     font-size: 3rem;
 }
-/** Le ponemos el mismo tamaño a todas las portadas de los discos*/
-img{
+
+
+/** Le ponemos el mismo tamaño a todas las portadas de los discos
+========================================================================= */
+#papota{
+    width: 600px !important; 
+    height: 600px !important;
+}
+
+#ghostcity{
+    width: 600px !important; 
+    height: 600px !important;
+}
+
+#dtmf{
     width: 600px !important; 
     height: 600px !important;
 }
