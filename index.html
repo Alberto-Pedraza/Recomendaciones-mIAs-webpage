@@ -73,64 +73,236 @@
             </p>
     </div>
 
-
-
-
-
-
     <!--* A partir de aquí están las cards para cada una de las recomendaciones musicales.
     ========================================================================================= -->
 
-    <div class="card mb-3 p-3 bg-dark bg-gradient">
-        <div class="row g-0">
-            <div class="col-6">
-                <img id="papota" src="img/PAPOTA.jpeg" alt="PAPOTA - Ca7riel y Paco Amoroso">
-            </div>
-            <div class="col-6">
-                <div class="card-body">
-                    <h2 class="card-title text-warning">PAPOTA</h2>
-                    <h4 class="card-subtitle text-warning">Ca7riel y Paco Amoroso <br> 2025 </h4>
-                    <p class="card-text">
-                        Después del éxito de su sesión en vivo en el Tiny Desk de NPR, Ca7riel y Paco Amoroso aprovecharon los reflectores para crear un EP que habla precisamente sobre las consecuencias de la viralidad y los vicios de la industria musical. Acompañado de un short film (como ya era costumbre) que le da cohesión a todo el proyecto, el tracklist es una amalgama de distintos géneros musicales que revelan el amplio conocimiento y habilidad de estos artistas resaltando su esencia juguetona y burlesca, misma que los ha llevado a romper tantos moldes y ser vanguardia en nuevos caminos musicales. <br>
-                        
-                    </p>
-                    <p class="card-text"><small class="text-secondary">Alternativo </small></p>
+    <!--todo AQUI VA EL CODIGO QUE GENERÓ DEEPSEEK PARA UNA CARD CON CONTENIDO DESPLEGABLE-->
+    <!--
+    ? CARD PAPOTA - VISTA LATERAL
+    La estructura ahora es un contenedor flexible que cambia de tamaño al hacer clic.
+-->
+    <div class="album-card mb-4" id="cardPapota">
+        <div class="card bg-dark bg-gradient border-">
+            <div class="row g-0">
+                <!-- 
+                    COLUMNA DE LA IMAGEN (siempre visible) 
+                    Esta columna mantiene un tamaño fijo y la imagen es clickeable
+                    *Removí la clase col-md-3 para que las imágenes fueran un poco más grandes en la página principal así que quedó sólo con col-4, igual en lugar de p-0 utilicé p-2 de padding para que no estuviera justo en la orilla.
+                -->
+                <div class="col-4"> 
+                    <button class="btn p-2 border-0 w-100 h-100" type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#infoPapota" 
+                            aria-expanded="false" 
+                            aria-controls="infoPapota">
+                        <img src="img/PAPOTA.jpeg" alt="PAPOTA - Ca7riel y Paco Amoroso" class="img-fluid rounded-start" style="max-width: 100%; height: auto;">
+                    </button>
                 </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="card mb-3 p-3 bg-dark bg-gradient">
-        <div class="row g-0">
-            <div class="col-6">
-                <img id="ghostcity" src="/img/GhostCity.jpeg" alt="Ghost City - Delta Sleep">
-            </div>
-            <div class="col-6">
-                <div class="card-body">
-                    <h2 class="card-title text-warning">Ghost City</h2>
-                    <h4 class="card-subtitle text-warning">Delta Sleep <br> 2018 </h4>
-                    <p class="card-text">
-                        Álbum conceptual de la banda inglesa, cuenta la historia de una chica viviendo en un futuro distópico no tan distante en el que el mundo ahora opera como una única ciudad con una conciencia colectiva bajo el mandato de grandes compañías de tecnología, donde la naturaleza y la vida salvaje son cosas del pasado, tan sólo mitos. A pesar de la desesperanza y desolación transmitida, existen momentos de esperanza que complementan esta obra sobre el existencialismo, la mundanidad, la opresión y los efectos negativos de la veneración a la tecnología. Un espejo en el cual se ve reflejada nuestra sociedad actual.
-                    </p>
-                    <p class="card-text"><small class="text-secondary">Math Rock</small></p>
+            
+                <!-- 
+                    COLUMNA DE INFORMACIÓN (colapsable) 
+                    Esta columna se oculta/muestra al hacer clic en la imagen
+                    * Aquí también sólo dejé el col-8 para mantener el tamaño más grande
+                -->
+                <div class="col-8 collapse" id="infoPapota">
+                    <div class="card-body">
+                        <!-- Información principal del álbum 
+                            *retiré la parte donde define el color del texto de la información para que se mantenga el seleccionado para la introducción y títulos-->
+                        <h2 class="card-title text-warning">PAPOTA</h2>
+                        <h4 class="card-subtitle text-warning mb-2">Ca7riel y Paco Amoroso <br> 2025</h4>
+                        <p class="card-text">
+                            Después del éxito de su sesión en vivo en el Tiny Desk de NPR, Ca7riel y Paco Amoroso aprovecharon los reflectores para crear un EP que habla precisamente sobre las consecuencias de la viralidad y los vicios de la industria musical. Acompañado de un short film (como ya era costumbre) que le da cohesión a todo el proyecto, el tracklist es una amalgama de distintos géneros musicales que revelan el amplio conocimiento y habilidad de estos artistas resaltando su esencia juguetona y burlesca, misma que los ha llevado a romper tantos moldes y ser vanguardia en nuevos caminos musicales.
+                        </p>
+                        <p class="card-text"><small class="text-secondary">Alternativo</small></p>
+                    
+                        <!-- 
+                            BOTÓN PARA DESPLEGAR CANCIONES (collapse anidado)
+                            Este es un segundo collapse que se activa con este botón
+                        -->
+                        <button class="btn btn-outline-warning btn-sm mt-2" type="button" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#cancionesPapota" 
+                                aria-expanded="false" 
+                                aria-controls="cancionesPapota">
+                            🎵 Tracklist
+                        </button>
+                    
+                        <!-- LISTA DE CANCIONES (collapsable anidado) -->
+                        <div class="collapse mt-3" id="cancionesPapota">
+                            <div class="card card-body bg-secondary bg-opacity-25 border-0" style="color: #DCDCDC;">
+                                <ul class="list-unstyled">
+                                    <li>1. <strong>IMPOSTOR</strong> </li>
+                                    <li>2. <strong>#TETAS</strong> </li>
+                                    <li>3. <strong>RE FORRO</strong> </li>
+                                    <li>4. <strong>EL DÍA DEL AMIGO</strong> ⭐ </li>
+                                    <li>5. <strong>DUMBAI - Live at NPR MUSIC's Tiny Desk</strong> </li>
+                                    <li>6. <strong>EL ÚNICO - Live at NPR MUSIC's Tiny Desk</strong> ⭐ </li>
+                                    <li>7. <strong>MI DESEO/BAD BITCH - Live at NPR MUSIC's Tiny Desk</strong> </li>
+                                    <li>8. <strong>BABY GANSTA - Live at NPR MUSIC's Tiny Desk</strong> </li>
+                                    <li>9. <strong>LA QUE PUEDE, PUEDE - Live at NPR MUSIC's Tiny Desk</strong> ⭐ </li>
+                                </ul>
+                                <p class="small text-secondary mb-0">⭐ = Canciones favoritas</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card mb-3 p-3 bg-dark bg-gradient">
-        <div class="row g-0">
-            <div class="col-6">
-                <img id="dtmf" src="/img/DeBÍTiRARMáSFOTos.jpeg" alt="DeBÍ TiRAR MáS FOToS - Bad Bunny">
+    <!--
+    ? CARD GHOST CITY - VISTA LATERAL
+    La estructura ahora es un contenedor flexible que cambia de tamaño al hacer clic.
+-->
+    <div class="album-card mb-4" id="cardGhostCity">
+        <div class="card bg-dark bg-gradient border-">
+            <div class="row g-0">
+                <!-- 
+                    COLUMNA DE LA IMAGEN (siempre visible) 
+                    Esta columna mantiene un tamaño fijo y la imagen es clickeable
+                    *Removí la clase col-md-3 para que las imágenes fueran un poco más grandes en la página principal así que quedó sólo con col-4, igual en lugar de p-0 utilicé p-2 de padding para que no estuviera justo en la orilla.
+                -->
+                <div class="col-4"> 
+                    <button class="btn p-2 border-0 w-100 h-100" type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#infoGhostCity" 
+                            aria-expanded="false" 
+                            aria-controls="infoGhostCity">
+                        <img src="img/GhostCity.jpeg" alt="Ghost City - Delta Sleep" class="img-fluid rounded-start" style="max-width: 100%; height: auto;">
+                    </button>
+                </div>
+            
+                <!-- 
+                    COLUMNA DE INFORMACIÓN (colapsable) 
+                    Esta columna se oculta/muestra al hacer clic en la imagen
+                    * Aquí también sólo dejé el col-8 para mantener el tamaño más grande
+                -->
+                <div class="col-8 collapse" id="infoGhostCity">
+                    <div class="card-body">
+                        <!-- Información principal del álbum 
+                            *retiré la parte donde define el color del texto de la información para que se mantenga el seleccionado para la introducción y títulos-->
+                        <h2 class="card-title text-warning">Ghost City</h2>
+                        <h4 class="card-subtitle text-warning mb-2">Delta Sleep <br> 2018</h4>
+                        <p class="card-text">
+                            Álbum conceptual de la banda inglesa, cuenta la historia de una chica viviendo en un futuro distópico no tan distante en el que el mundo ahora opera como una única ciudad con una conciencia colectiva bajo el mandato de grandes compañías de tecnología, donde la naturaleza y la vida salvaje son cosas del pasado, tan sólo mitos. A pesar de la desesperanza y desolación transmitida, existen momentos de esperanza que complementan esta obra sobre el existencialismo, la mundanidad, la opresión y los efectos negativos de la veneración a la tecnología. Un espejo en el cual se ve reflejada nuestra sociedad actual.
+                        </p>
+                        <p class="card-text"><small class="text-secondary">Math Rock</small></p>
+                    
+                        <!-- 
+                            BOTÓN PARA DESPLEGAR CANCIONES (collapse anidado)
+                            Este es un segundo collapse que se activa con este botón
+                        -->
+                        <button class="btn btn-outline-warning btn-sm mt-2" type="button" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#cancionesGhostCity" 
+                                aria-expanded="false" 
+                                aria-controls="cancionesGhostCity">
+                            🎵 Tracklist
+                        </button>
+                    
+                        <!-- LISTA DE CANCIONES (collapsable anidado) -->
+                        <div class="collapse mt-3" id="cancionesGhostCity">
+                            <div class="card card-body bg-secondary bg-opacity-25 border-0" style="color: #DCDCDC;">
+                                <ul class="list-unstyled">
+                                    <li>1. <strong>Sultans of Ping</strong> </li>
+                                    <li>2. <strong>Afterdark</strong> </li>
+                                    <li>3. <strong>Ghost</strong> </li>
+                                    <li>4. <strong>Single File</strong> ⭐ </li>
+                                    <li>5. <strong>Dotwork</strong> ⭐ </li>
+                                    <li>6. <strong>Dream Thang</strong> </li>
+                                    <li>7. <strong>Sans Soleil</strong> </li>
+                                    <li>8. <strong>El Pastor</strong> ⭐ </li>
+                                    <li>9. <strong>Glass</strong> </li>
+                                    <li>10. <strong>Floater</strong> ⭐ </li>
+                                    <li>11. <strong>Afterimage</strong> </li>
+                                </ul>
+                                <p class="small text-secondary mb-0">⭐ = Canciones favoritas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-6">
-                <div class="card-body">
-                    <h2 class="card-title text-warning"> DeBÍ TiRAR MáS FOToS </h2>
-                    <h4 class="card-subtitle text-warning"> Bad Bunny <br> 2025 </h4>
-                    <p class="card-text">Siendo un retorno del artista Puertorriqueño a sus raíces, brinda homenaje a su tierra natal utilizando un gran número de estilos característicos de ella, de la misma manera que no esconde su preocupación por su situación actual, su futuro y el legado que podría perderse gracias a la gentrificación e invasión extranjeras. <br>
-                    Acompañando a cada pieza del disco se muestran textos con información relevante acerca del país, los cuáles fueron escritos por distintos activistas, a los que se les dió una plataforma para que también se escuchara su voz. Además, cuando anunció la gira para presentar el disco, excluyó intencionalmente a Estados Unidos, lo cual dió aún más fuerza al mensaje que pregona con esta producción. 
-                    </p>
-                    <p class="card-text"><small class="text-secondary">Urbano </small></p>
+        </div>
+    </div>
+
+
+    <!--
+    ? CARD DTMF - VISTA LATERAL
+    La estructura ahora es un contenedor flexible que cambia de tamaño al hacer clic.
+-->
+    <div class="album-card mb-4" id="cardDMTF">
+        <div class="card bg-dark bg-gradient border-">
+            <div class="row g-0">
+                <!-- 
+                    COLUMNA DE LA IMAGEN (siempre visible) 
+                    Esta columna mantiene un tamaño fijo y la imagen es clickeable
+                    *Removí la clase col-md-3 para que las imágenes fueran un poco más grandes en la página principal así que quedó sólo con col-4, igual en lugar de p-0 utilicé p-2 de padding para que no estuviera justo en la orilla.
+                -->
+                <div class="col-4"> 
+                    <button class="btn p-2 border-0 w-100 h-100" type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#infoDTMF" 
+                            aria-expanded="false" 
+                            aria-controls="infoDTMF">
+                        <img src="img/DeBÍTiRARMáSFOTos.jpeg" alt="DeBÍ TiRAR MáS FOToS - Bad Bunny" class="img-fluid rounded-start" style="max-width: 100%; height: auto;">
+                    </button>
+                </div>
+            
+                <!-- 
+                    COLUMNA DE INFORMACIÓN (colapsable) 
+                    Esta columna se oculta/muestra al hacer clic en la imagen
+                    * Aquí también sólo dejé el col-8 para mantener el tamaño más grande
+                -->
+                <div class="col-8 collapse" id="infoDTMF">
+                    <div class="card-body">
+                        <!-- Información principal del álbum 
+                            *retiré la parte donde define el color del texto de la información para que se mantenga el seleccionado para la introducción y títulos-->
+                        <h2 class="card-title text-warning">DeBÍ TiRAR MáS FOToS</h2>
+                        <h4 class="card-subtitle text-warning mb-2"> Bad Bunny <br> 2025</h4>
+                        <p class="card-text">
+                            Siendo un retorno del artista Puertorriqueño a sus raíces, brinda homenaje a su tierra natal utilizando un gran número de estilos característicos de ella, de la misma manera que no esconde su preocupación por su situación actual, su futuro y el legado que podría perderse gracias a la gentrificación e invasión extranjeras. <br>
+                            Acompañando a cada pieza del disco se muestran textos con información relevante acerca del país, los cuáles fueron escritos por distintos activistas, a los que se les dió una plataforma para que también se escuchara su voz. Además, cuando anunció la gira para presentar el disco, excluyó intencionalmente a Estados Unidos, lo cual dió aún más fuerza al mensaje que pregona con esta producción. 
+                        </p>
+                        <p class="card-text"><small class="text-secondary"> Urbano </small></p>
+                    
+                        <!-- 
+                            BOTÓN PARA DESPLEGAR CANCIONES (collapse anidado)
+                            Este es un segundo collapse que se activa con este botón
+                        -->
+                        <button class="btn btn-outline-warning btn-sm mt-2" type="button" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#cancionesDTMF" 
+                                aria-expanded="false" 
+                                aria-controls="cancionesDTMF">
+                            🎵 Tracklist
+                        </button>
+                    
+                        <!-- LISTA DE CANCIONES (collapsable anidado) -->
+                        <div class="collapse mt-3" id="cancionesDTMF">
+                            <div class="card card-body bg-secondary bg-opacity-25 border-0" style="color: #DCDCDC;">
+                                <ul class="list-unstyled">
+                                    <li>1. <strong>NUEVAYoL</strong> ⭐ </li>
+                                    <li>2. <strong>VOY A LLeVARTE PA PR</strong> </li>
+                                    <li>3. <strong>BAILE INoLVIDABLE</strong> </li>
+                                    <li>4. <strong>PERFuMITO NUEVO</strong> </li>
+                                    <li>5. <strong>WELTiTA</strong> </li>
+                                    <li>6. <strong>VeLDÁ</strong> </li>
+                                    <li>7. <strong>EL CLúB</strong> </li>
+                                    <li>8. <strong>KETU TeCRÉ</strong> </li>
+                                    <li>9. <strong>BOKeTE</strong> </li>
+                                    <li>10. <strong>KLOuFRENS</strong> </li>
+                                    <li>11. <strong>TURiSTA</strong> ⭐ </li>
+                                    <li>12. <strong>CAFé CON RON</strong> </li>
+                                    <li>13. <strong>PIToRRO DE COCO</strong> ⭐ </li>
+                                    <li>14. <strong>LO QUE LE PASÓ A HAWAii</strong> ⭐ </li>
+                                    <li>15. <strong>EoO</strong> </li>
+                                    <li>16. <strong>DtMF</strong> ⭐ </li>
+                                    <li>17. <strong>LA MuDANZA</strong> ⭐ </li>
+                                </ul>
+                                <p class="small text-secondary mb-0">⭐ = Canciones favoritas</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
