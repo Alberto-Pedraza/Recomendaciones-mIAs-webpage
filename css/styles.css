@@ -63,30 +63,195 @@ p{
 }
 
 
+/*! Ya no se utiliza porque se mejoró el diseño de las cards con su segunda propuesta.*/
 /** Propuesta de DeepSeek para mejorar la transición de las cards desplegables */
 /* Estilos para las cards expandibles */
-.album-card {
+/*.album-card-premium {
     transition: all 0.3s ease-in-out;
-}
+}*/
 
 /* Efecto hover en la imagen para indicar que es interactiva */
-.album-card .btn img {
+/*.album-card-premium .btn img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.album-card .btn:hover img {
+.album-card-premium .btn:hover img {
     transform: scale(1.02);
     box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
-}
+}*/
 
 /* Estilo para el collapse anidado (lista de canciones) */
-.album-card .collapse .card {
+/*.album-card-premium .collapse .card {
     background: rgba(255, 255, 255, 0.05) !important;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 193, 7, 0.2) !important;
-}
+}*/
 
 /* Mejora para la transición del collapse */
-.collapse {
+/*.collapse {
     transition: all 0.35s ease-in-out;
+}*/
+
+
+
+/**Segunda propuesta para mejorar el diseño del fondo de las cards*/
+/* ============================================
+   VARIABLES CSS
+   ============================================ */
+:root {
+    /* Alternativo - Morados */
+    --alternativo-start: #2d1b69;
+    --alternativo-end: #4a2c8a;
+    --alternativo-accent: #7c5cbf;
+    
+    /* Math Rock - Verdes */
+    --mathrock-start: #1a4a3a;
+    --mathrock-end: #2d6b5a;
+    --mathrock-accent: #4a9a80;
+    
+    /* Urbano - Dorados */
+    --urbano-start: #4a3520;
+    --urbano-end: #6b4f35;
+    --urbano-accent: #c49a6c;
+}
+
+/* ============================================
+   ESTILOS BASE
+   ============================================ */
+.album-card-premium {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease;
+    isolation: isolate;
+    animation: cardFadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.album-card-premium:nth-child(1) { animation-delay: 0.1s; }
+.album-card-premium:nth-child(2) { animation-delay: 0.3s; }
+.album-card-premium:nth-child(3) { animation-delay: 0.5s; }
+
+.album-card-premium:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   PSEUDO-ELEMENTO: IMAGEN DESENFOCADA
+   ============================================ */
+.album-card-premium::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    left: -20px;
+    z-index: 0;
+    background-image: var(--album-image);
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px) brightness(0.4) saturate(1.2);
+    transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1.1);
+}
+
+.album-card-premium:hover::before {
+    filter: blur(20px) brightness(0.6) saturate(1.4);
+}
+
+/* ============================================
+   PSEUDO-ELEMENTO: GRADIENTE
+   ============================================ */
+.album-card-premium::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, 
+                var(--genre-start, #2d1b69), 
+                var(--genre-end, #4a2c8a));
+    opacity: 0.8;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.album-card-premium:hover::after {
+    opacity: 0.65;
+}
+
+/* ============================================
+   CLASES POR GÉNERO
+   ============================================ */
+.card-alternativo {
+    --genre-start: var(--alternativo-start);
+    --genre-end: var(--alternativo-end);
+    --genre-accent: var(--alternativo-accent);
+    border: 1px solid rgba(124, 92, 191, 0.2) !important;
+}
+
+.card-mathrock {
+    --genre-start: var(--mathrock-start);
+    --genre-end: var(--mathrock-end);
+    --genre-accent: var(--mathrock-accent);
+    border: 1px solid rgba(74, 154, 128, 0.2) !important;
+}
+
+.card-urbano {
+    --genre-start: var(--urbano-start);
+    --genre-end: var(--urbano-end);
+    --genre-accent: var(--urbano-accent);
+    border: 1px solid rgba(196, 154, 108, 0.2) !important;
+}
+
+/* ============================================
+   CONTENIDO
+   ============================================ */
+.album-card-premium .row,
+.album-card-premium .row > * {
+    position: relative;
+    z-index: 2;
+}
+
+.album-card-premium .card-body {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.album-card-premium .card-title {
+    color: var(--genre-accent, #ffc107) !important;
+}
+
+.album-card-premium .btn-outline-warning {
+    color: var(--genre-accent, #ffc107) !important;
+    border-color: var(--genre-accent, #ffc107) !important;
+}
+
+.album-card-premium .btn-outline-warning:hover {
+    background-color: var(--genre-accent, #ffc107) !important;
+    color: #fff !important;
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .album-card-premium {
+        animation: none;
+        opacity: 1;
+    }
 }

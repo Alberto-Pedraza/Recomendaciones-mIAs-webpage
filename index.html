@@ -39,9 +39,9 @@
                 Géneros
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#papota">Alternativo</a></li>
-              <li><a class="dropdown-item" href="#ghostcity">Math rock</a></li>
-              <li><a class="dropdown-item" href="#dtmf">Urbano</a></li>
+              <li><a class="dropdown-item" href="#cardPapota">Alternativo</a></li>
+              <li><a class="dropdown-item" href="#cardGhostCity">Math rock</a></li>
+              <li><a class="dropdown-item" href="#cardDTMF">Urbano</a></li>
             </ul>
           </li>
         </ul>
@@ -57,9 +57,6 @@
         ============================== -->
         <header> 
             <h1>Álbumes que vale la pena escuchar de principio a fin</h1>
-            <!--* Autor, o sea yo
-            =============================== -->
-            <h3>Por Alberto Pedraza</h3>
         </header>
 
         <!--* Descripción del sitio
@@ -80,9 +77,16 @@
     <!--
     ? CARD PAPOTA - VISTA LATERAL
     La estructura ahora es un contenedor flexible que cambia de tamaño al hacer clic.
--->
-    <div class="album-card mb-4" id="cardPapota">
-        <div class="card bg-dark bg-gradient border-">
+    -->
+
+    <!-- todo Esta es la modificación que se sugirió para cambiarle el estilo en el CSS y usar las portadas desenfocadas junto  al gradiente por género como fondo para las cards 
+    class="album-card-premium card-alternativo mb-4" 
+    style="--album-image: url('img/PAPOTA.jpeg')" a
+    todo Así que esto es lo que se agregó en la primera parte de la card como se observa abajo.
+     -->
+
+
+    <div class="album-card-premium card-alternativo mb-4" id="cardPapota" style="--album-image: url('https://i.pinimg.com/736x/3a/c8/26/3ac82643e3c8d25cb1910b3fb920d832.jpg')">
             <div class="row g-0">
                 <!-- 
                     COLUMNA DE LA IMAGEN (siempre visible) 
@@ -147,15 +151,13 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
     <!--
     ? CARD GHOST CITY - VISTA LATERAL
     La estructura ahora es un contenedor flexible que cambia de tamaño al hacer clic.
 -->
-    <div class="album-card mb-4" id="cardGhostCity">
-        <div class="card bg-dark bg-gradient border-">
+    <div class="album-card-premium card-mathrock mb-4" id="cardGhostCity" style="--album-image: url('https://i.pinimg.com/736x/ff/5f/5a/ff5f5a785a08f0ccac214aacfba7af04.jpg')">
             <div class="row g-0">
                 <!-- 
                     COLUMNA DE LA IMAGEN (siempre visible) 
@@ -230,8 +232,7 @@
     ? CARD DTMF - VISTA LATERAL
     La estructura ahora es un contenedor flexible que cambia de tamaño al hacer clic.
 -->
-    <div class="album-card mb-4" id="cardDMTF">
-        <div class="card bg-dark bg-gradient border-">
+    <div class="album-card-premium card-urbano mb-4" id="cardDTMF" style="--album-image: url('https://i.pinimg.com/736x/d4/56/d0/d456d03120d12ddb10a967dd58da32ef.jpg')">
             <div class="row g-0">
                 <!-- 
                     COLUMNA DE LA IMAGEN (siempre visible) 
