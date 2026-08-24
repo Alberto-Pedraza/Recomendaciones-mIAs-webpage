@@ -255,3 +255,89 @@ p{
         opacity: 1;
     }
 }
+
+/**Estilos para el footer, principalmente que tengan efecto los botones*/
+/* Efecto hover para los íconos de redes sociales */
+.hover-warning {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hover-warning:hover {
+    color: #ffc107 !important;
+    transform: translateY(-2px);
+}
+
+/* Estilo para el botón de sugerencias */
+.btn-outline-warning {
+    transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+/* Responsive: ajustes para móviles */
+@media (max-width: 768px) {
+    footer .row > div {
+        margin-bottom: 1rem;
+    }
+    footer .row > div:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+/**Estilos propuestos para el encabezado*/
+/* ============================================
+   HERO CON IMAGEN - Estilos
+   ============================================ */
+
+.hero-image-header {
+    /* Imagen de fondo (puedes usar una URL o imagen local) */
+    background-image: url('https://i.pinimg.com/1200x/4c/b6/97/4cb69788938d5fa32dcfdc5933e995e3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Capa de oscurecimiento */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.8), 
+                rgba(20, 10, 30, 0.85));
+    z-index: 1;
+}
+
+/* Badge decorativo */
+.hero-image-header .badge {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    animation: pulseBadge 3s ease-in-out infinite;
+}
+
+@keyframes pulseBadge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Efecto de parallax en móviles */
+@media (max-width: 768px) {
+    .hero-image-header {
+        background-attachment: scroll;
+        min-height: 50vh;
+    }
+    
+    .hero-image-header h1 {
+        font-size: 2.5rem !important;
+    }
+}
